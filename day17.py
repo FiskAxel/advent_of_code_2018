@@ -22,6 +22,15 @@ def main():
 		print(f"Part 1: {result[0] + result[1] - 3}") 
 		print(f"Part 2: {result[0]}")
 
+def printField(field):
+	f = open("out17.txt", 'w')
+	for y in range(len(field)):
+		for x in range(len(field[y])):
+			if x < 300:
+				continue
+			f.write(field[y][x])
+		f.write("\n")
+	f.close()
 def findHighestYX(list):
 	y = 0
 	x = 500
@@ -101,15 +110,5 @@ def countWater(field):
 	print(f"'~'-count: {still}")
 	print(f"'|'-count: {flowy}")
 	return [still, flowy]
-
-def printField(field):
-	f = open("out17.txt", 'w')
-	for y in range(len(field)):
-		for x in range(len(field[y])):
-			if x < 300:
-				continue
-			f.write(field[y][x])
-		f.write("\n")
-	f.close()
 
 main()

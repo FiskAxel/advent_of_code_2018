@@ -7,9 +7,9 @@ def main():
 		input = puzzleInput.readline()
 		findDoors(0, 0, input)
 		result = findPath(0, 0)
-		print(f"Part 1: {result}") # P1 and P2 runs in about 15 seconds.
+		print(f"Part 1: {result}")
 		print(f"Part 2: {thousandDoorsAway}")
-		printMap()
+		#printMap()
 
 def findDoors(y, x, c):
 	# Splits string if '|' is not inside parenthesis
@@ -92,7 +92,6 @@ def findPath(y, x):
 			thousandDoorsAway += 1
 	return len
 def printMap():
-	"Writes to file 'out20.txt'. All doors are represented by '|'"
 	minY, minX = float("inf"), float("inf")
 	maxY, maxX = float("-inf"), float("-inf")
 	for d in doors:
@@ -113,8 +112,7 @@ def printMap():
 			minX = s[1]
 		if s[1] > maxX:
 			maxX = s[1]
-
-	f = open('out20.txt', 'w')
+	
 	for y in range(minY - 1, maxY + 2):
 		row = ""
 		for x in range(minX - 1, maxX + 2):
@@ -126,7 +124,6 @@ def printMap():
 				row += '.'
 			else:
 				row += '#'
-		f.write(row + '\n')
-	f.close()
+		print(row)
 
 main()
